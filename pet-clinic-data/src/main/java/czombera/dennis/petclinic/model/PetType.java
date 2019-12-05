@@ -1,6 +1,6 @@
 package czombera.dennis.petclinic.model;
 
-public class PetType {
+public class PetType extends BaseEntity {
     private String Name;
 
     public String getName() {
