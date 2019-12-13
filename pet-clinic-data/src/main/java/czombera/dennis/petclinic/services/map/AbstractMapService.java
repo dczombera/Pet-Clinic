@@ -6,7 +6,7 @@ import czombera.dennis.petclinic.services.CrudService;
 import java.util.*;
 
 public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> implements CrudService<T, ID> {
-    protected Map<Long, T> map = new HashMap<>();
+    private Map<Long, T> map = new HashMap<>();
 
     public Set<T> findAll() {
         return new HashSet<>(map.values());
@@ -33,11 +33,11 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
     }
 
     public void delete(T object) {
-        map.entrySet().removeIf(entry -> entry.equals(object));
+        map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
 
     private Long getNextId() {
-        Long nextId = null;
+        Long nextId;
 
         try {
             nextId = Collections.max(map.keySet()) + 1;
