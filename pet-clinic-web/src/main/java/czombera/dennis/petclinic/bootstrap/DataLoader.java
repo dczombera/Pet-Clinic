@@ -33,38 +33,25 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-        PetType dog = new PetType();
-        dog.setName("Dog");
+        PetType dog = PetType.builder().name("Dog").build();
         petTypeService.save(dog);
 
-        PetType cat = new PetType();
-        dog.setName("Cat");
+        PetType cat = PetType.builder().name("Cat").build();
         petTypeService.save(cat);
 
-        Specialty radiology = new Specialty();
-        radiology.setDescription("Radiology");
+        Specialty radiology = Specialty.builder().description("Radiology").build();
         specialtyService.save(radiology);
 
-        Specialty surgery = new Specialty();
-        surgery.setDescription("Surgery");
+        Specialty surgery = Specialty.builder().description("Surgery").build();
         specialtyService.save(surgery);
 
-        Specialty dentistry = new Specialty();
-        dentistry.setDescription("Dentistry");
+        Specialty dentistry = Specialty.builder().description("Dentistry").build();
         specialtyService.save(dentistry);
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Michael");
-        owner1.setLastName("Weston");
-        owner1.setAddress("123 Brick");
-        owner1.setCity("Gotham City");
-        owner1.setTelephone("4242");
+        Owner owner1 = Owner.builder().firstName("Michael").lastName("Weston").address("123 Brick")
+                .city("Gotham City").telephone("4242").build();
 
-        Pet mikesPet = new Pet();
-        mikesPet.setPetType(dog);
-        mikesPet.setOwner(owner1);
-        mikesPet.setBirth(LocalDate.now());
-        mikesPet.setName("Bruce");
+        Pet mikesPet = Pet.builder().petType(dog).owner(owner1).birth(LocalDate.now()).name("Bruce").build();
         owner1.getPets().add(mikesPet);
 
         ownerService.save(owner1);
