@@ -6,9 +6,11 @@ import czombera.dennis.petclinic.model.PetType;
 import czombera.dennis.petclinic.services.OwnerService;
 import czombera.dennis.petclinic.services.PetService;
 import czombera.dennis.petclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
     private final PetTypeService petTypeService;
     private final PetService petService;
