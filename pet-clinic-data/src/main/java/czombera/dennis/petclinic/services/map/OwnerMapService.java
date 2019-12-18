@@ -9,6 +9,8 @@ import czombera.dennis.petclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
@@ -53,5 +55,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
         } else {
             throw new RuntimeException("Object cannot be null");
         }
+    }
+
+    //TODO: implement
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return null;
     }
 }
